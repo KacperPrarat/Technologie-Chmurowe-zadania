@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+  server:
+    depends_on:
+      - db
+    build: .
+    networks:
+      - lab08zad2
+    ports:
+      - "3000:3000"
+  db:
+    image: redis
+    networks:
+      - lab08zad2
+    ports:
+      - "6379:6379"
+
+networks:
+  lab08zad2:
+    external: false
+    name: lab08zad2
